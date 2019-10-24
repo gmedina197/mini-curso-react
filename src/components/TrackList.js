@@ -1,7 +1,5 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import useMusicPlayer from "../hooks/useMusicPlayer";
-
-import {getSongs} from "../assets/fakeBackend";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
@@ -12,15 +10,6 @@ function TrackList() {
     playTrack,
     isPlaying
   } = useMusicPlayer();
-
-  useEffect(() => {
-    const fetchData = async() => {
-      const songs = await getSongs('http://localhost:8081/songs');
-      console.log(songs);
-    }
-
-    fetchData();
-  }, []);
 
   return (
     <Fragment>
